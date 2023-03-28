@@ -3,10 +3,13 @@ import AppointmentList from "../components/AppointmentList"
 import Doctors from "../components/Doctors"
 import { doctorData } from "../helper/data"
 import { appointmentData } from "../helper/data"
+import { useEffect } from "react"
 
 const Home = () => {
-  const [doctors, setDoctors] = useState(doctorData)
+  const [doctors, setDoctors] = useState([])
+  
   const [appointments, setAppointments] = useState(appointmentData)
+  
 
   //! Mock Data yerine API'Den veri cekilseydi
   // const getAppointments = async () => {
@@ -21,6 +24,11 @@ const Home = () => {
   // useEffect(() => {
   //   getAppointments()
   // }, [])
+
+  useEffect(() => {
+    setDoctors(doctorData)
+  }, [])
+
 
   console.log(appointments)
   console.log(doctors)
